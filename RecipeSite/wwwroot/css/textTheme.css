@@ -1,11 +1,11 @@
 ﻿* {
-    color: #877c7c;
+    color: #4f4f4f;
     font-family: Garamond;
 }
 body {
 
    
 }
-i:hover {
-    color: #2641ed;
+.myBookmark:hover {
+    color: yellow;
 }
