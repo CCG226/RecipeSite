@@ -10,31 +10,20 @@
 <br /><br />
   
 <br /><br />
-<div class="card text-white" style="width:200px; height: 170px;">
-           <!--if user has save recipe Id keep bookmark blue-->
-           <!-- onMouseOut="this.style.color='#999e9b'"  onMouseOver="this.style.color='#2641ed'"-->
-        <div class="card-img-overlay " >
-             <button class="" style="width: 20px; background-color:transparent; border-color: transparent;" >
-                  <span  onclick="bookmark(this);" class="material-symbols-outlined myBookmark" id="myBookmark">
-bookmark
-</span>
+<div class="card ounded shadow-sm" style="width: 340px;  border:5px solid #ffa69e; position: relative;">
+      <button class="" style="width: 20px; background-color:transparent; border-color: transparent; position: absolute;" >
+                  <span  onclick="bookmark(this);" class="material-symbols-outlined myBookmark" id="myBookmark">bookmark</span>
 
              </button>
-     
-  
-             <div style=" display: grid; margin-top: 250px; grid-template-columns:  230px 200px; gap: 0px;">
-
-                         <h5 class="card-title d-inline " style="font-size: 18px;" >Rindfleischetidddddddddddddddddddddddkettierungsüberwach</h5>
+  <img class="card-img-top" src="Images/dog.PNG" alt="Card image cap">
+  <div class="card-body" style="background-color: rgba(216, 216, 216, 0.3); display: grid; grid-template-columns:  230px 200px; gap: 0px;">
+            <h5 class="card-title d-inline " style="font-size: 18px;" >Rindfleischetidddddddddddddddddddddddkettierungsüberwach</h5>
                          <!--if no ratings put no ratings next to star-->
                            <h6 class="card-title d-inline" style="font-size: 18px !important; vertical-align: bottom;" >no rating<span class="material-symbols-outlined" style=" vertical-align: bottom; color: #aba148; margin-top: 3px;">
 star
 </span></h6>
-                           
-
-                       
-             </div>
-   
-        </div>
-         <div class="test"><img src="Images/dog.PNG" class="art rounded shadow-sm" style="height: 360px; border:5px solid #ffa69e;" /></div>
+                        
+  </div>
 </div>
+
    <script src="~/js/public.js" asp-append-version="true"></script>
