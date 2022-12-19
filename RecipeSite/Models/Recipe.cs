@@ -10,7 +10,7 @@ namespace RecipeSite.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(maximumLength: 56)]
+        [StringLength(maximumLength: 100)]
         public string? Name { get; set; }
 
   

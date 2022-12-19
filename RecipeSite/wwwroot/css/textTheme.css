@@ -2,10 +2,20 @@
     color: #4f4f4f;
     font-family: Garamond;
 }
+label {
+    color: #4f4f4f;
+    font-family: Garamond;
+}
 body {
 
    
 }
 .myBookmark:hover {
     color: cornflowerblue;
+}
+input[type='checkbox'] {
+    accent-color: red;
+}
+.container input:checked ~ .checkmark {
+    background-color: red;
 }

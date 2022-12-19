@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -12,7 +17,7 @@
 
 <body>
     <header>
-        <nav style=" background-color: #ffa69e; " class="navbar navbar-expand-sm navbar-toggleable-sm navbar-ligh border-bottom box-shadow mb-3">
+        <nav style=" background-color: #ff817b ; " class="navbar navbar-expand-sm navbar-toggleable-sm navbar-ligh border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand font-weight-bold" style="color:#28ad8a; font-weight: bold;" asp-area="" asp-controller="Home" asp-action="Index">RecipeSite</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -21,15 +26,28 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <li class="nav-item px-4">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Public Recipes</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                          <li class="nav-item">
-                               </li>
-                            
+                    
+                       @if (SignInManager.IsSignedIn(User))
+                        {     <li class="nav-item  px-4">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Saved Recipes</a>
+                        </li>  
+                            <li class="nav-item  px-4">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy"> User Created Recipes</a>
+                            </li>
+                        }
+                        else
+                        {// put js here to send notification about Must Login
+                               <li class="nav-item  px-4">
+                            <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Saved Recipes</a>
+                        </li>  
+                            <li class="nav-item  px-4">
+                            <a class="nav-link text-dark"id="login" asp-area="Identity" asp-page="/Account/Login"> User Created Recipes</a>
+                            </li>
+                        }
+
                     </ul>
                      <partial name="_LoginPartial" />
                 </div>

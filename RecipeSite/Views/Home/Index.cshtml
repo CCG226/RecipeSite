@@ -5,25 +5,230 @@
     <link href='https://css.gg/bookmark.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
 </head>
+<header>
+    <searchbar>
+         <div class="row">
+    <div class="w-50 mx-auto">
+        <div class="input-group">
+  <div class="form-outline w-50">
+    <input placeholder="Search" type="search" id="form1" class="form-control"  />
+
+  </div>
+  <button type="button" class="btn rounded" style="background-color: #28ad8a; height: 38px;">
+      <span class="material-symbols-outlined" style="color: white;">search
+</span>
+  </button>
+</div>
+   </div>
+  </div>
+    </searchbar>
+
+<Filters class="container w-50">
+    <div class="row w-50">
+
+   <div class="col">
+       <div class="dropdown">
+  <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Filter by rating
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="#">Filter By Highest</a></li>
+    <li><a class="dropdown-item" href="#">Filter By Lowest</a></li>
+    <li><a class="dropdown-item" href="#">5 <span class="material-symbols-outlined" style=" vertical-align: bottom; color: #aba148; ">
+star
+</span></a></li>
+    <li><a class="dropdown-item" href="#">4 <span class="material-symbols-outlined" style=" vertical-align: bottom; color: #aba148; ">
+star
+</span></a></li>
+    <li><a class="dropdown-item" href="#">3 <span class="material-symbols-outlined" style=" vertical-align: bottom; color: #aba148; ">
+star
+</span></a></li>
+    <li><a class="dropdown-item" href="#">2 <span class="material-symbols-outlined" style=" vertical-align: bottom; color: #aba148; ">
+star
+</span></a></li>
+    <li><a class="dropdown-item" href="#">1 <span class="material-symbols-outlined" style=" vertical-align: bottom; color: #aba148; ">
+star
+</span></a></li>
+    <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Filter By Any Rating</a></li>
+  </ul>
+</div>
+   </div>
+   <div class="col"> 
+       <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+   Filter By Date
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="#">Filter By Recent</a></li>
+    <li><a class="dropdown-item" href="#">Filter By Earliest</a></li>
+    <li><a class="dropdown-item" href="#"><label style=" color: #4f4f4f; font-family: Garamond;" for="start">Select date:</label>
+<input type="date" id="start" name="trip-start"
+       value="2018-07-22"
+       min="2018-01-01" max="2018-12-31"></a></li>
+            <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Filter By Any Date</a></li>
+
+  </ul>
+</div>
+   </div>
+   <div class="col">
+       <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Filter By Category
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">Breakfast</label>
+                </div>
+            </a>
+        </li>
+           <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">Lunch</label>
+                </div>
+            </a>
+        </li>
+           <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">Appetizers</label>
+                </div>
+            </a>
+        </li>
+           <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">Dinner</label>
+                </div>
+            </a>
+        </li>
+         <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">Drinks</label>
+                </div>
+            </a>
+        </li>
+         <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">Snacks</label>
+                </div>
+            </a>
+        </li>
+         <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">Gluten-Free</label>
+                </div>
+            </a>
+        </li>
+         <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">Vegan</label>
+                </div>
+            </a>
+        </li>
+         <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">Keto</label>
+                </div>
+            </a>
+        </li>
+         <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">Asian</label>
+                </div>
+            </a>
+        </li>
+         <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">Italian</label>
+                </div>
+            </a>
+        </li>
+         <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">Indian</label>
+                </div>
+            </a>
+        </li>
+         <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">Greek</label>
+                </div>
+            </a>
+        </li>
+         <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">Mexican</label>
+                </div>
+            </a>
+        </li>
+         <li>
+            <a class="dropdown-item" href="#">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Checkme1" />
+                    <label class="form-check-label" for="Checkme1">American</label>
+                </div>
+            </a>
+        </li>
+
+  </ul>
+</div>
+   </div>
+ </div>
+</Filters>
+
+</header>
+
 <br /><br />
   
 <br /><br />
-<div class="card ounded shadow-sm" style="width: 340px;  border:5px solid #ffa69e; position: relative;">
+<body>
+<div class="card rounded shadow-sm" style="width: 340px;  border:4px solid #ff817b; position: relative;">
       <button class="" style="width: 20px; background-color:transparent; border-color: transparent; position: absolute;" >
-                  <span  onclick="bookmark(this);" class="material-symbols-outlined myBookmark" id="myBookmark">bookmark</span>
+                  <span  onclick="bookmark(this);" class="material-symbols-outlined myBookmark" id="myBookmark" style="color: #808080;">bookmark</span>
 
              </button>
-  <img class="card-img-top" src="Images/dog.PNG" alt="Card image cap">
-  <div class="card-body" style="background-color: rgba(216, 216, 216, 0.3); display: grid; grid-template-columns:  230px 200px; gap: 0px;">
-            <h5 class="card-title d-inline " style="font-size: 18px;" >Rindfleischetidddddddddddddddddddddddkettierungsüberwach</h5>
+
+  <a href="https://getbootstrap.com/docs/5.0/helpers/stretched-link/"><img class="card-img-top" src="Images/dog.PNG" alt="Card image cap"></a>
+  <div class="card-body" style="background-color: rgba(231, 231, 231, 0.5); display: grid; grid-template-columns:  220px 200px; gap: 0px;">
+     <a href="https://getbootstrap.com/docs/5.0/helpers/stretched-link/" style="text-decoration: none;">  <h5 class="card-title" style="font-size: 18px;" >Recipe Title</h5></a>     
                          <!--if no ratings put no ratings next to star-->
-                           <h6 class="card-title d-inline" style="font-size: 18px !important; vertical-align: bottom;" >no rating<span class="material-symbols-outlined" style=" vertical-align: bottom; color: #aba148; margin-top: 3px;">
+                    <a href="https://getbootstrap.com/docs/5.0/helpers/stretched-link/" style="text-decoration: none;"> <h5 class="card-title" style="font-size: 18px !important; margin-top:-5px;" >No Rating<span class="material-symbols-outlined" style=" vertical-align: bottom; color: #aba148; margin-top: 3px;">
 star
-</span></h6>
-                        
+</span></h5></a>             
+                 
   </div>
 </div>
-
+</body>
    <script src="~/js/public.js" asp-append-version="true"></script>
