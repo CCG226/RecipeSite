@@ -1,4 +1,4 @@
-﻿function bookmark(element) {
+﻿function bookmarkIconChange(element) {
 
     if (element.innerHTML === "bookmark_added") {
         element.innerHTML = "bookmark";
@@ -10,4 +10,7 @@
  
     return;
     
+}
+function bookmarkNotification() {
+    window.alert("sometext");
 }
