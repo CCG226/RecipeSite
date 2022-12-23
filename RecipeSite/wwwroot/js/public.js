@@ -13,16 +13,12 @@
 }
 function bookmarkNotification() {
     let bookmark = document.getElementById("myBookmark");
-    if (bookmark.innerHTML === "bookmark") {
+    if (bookmark.innerHTML === "bookmark_added") {
         savedNotification();
         return;
     }
+    unsavedNotification();
 
-
-   
-
-    /// const target = document.getElementById("alertDiv");
-//    window.onload = setInterval(() => target.style.opacity = '0', 3000);
 }
 
 async function savedNotification() {
@@ -31,11 +27,17 @@ async function savedNotification() {
             $("#savedAlert").append("<div class='alert alert-success alert-dismissable' id='savedAlert2'> <button type='button' class='close' data-dismiss='alert'  aria-hidden='true'>&times;</button> <strong>Saved!</strong> message sent successfully.</div>");
         }
     $("#savedAlert").css("display", "");
-    await sleep(2000);
-  //  $("#savedAlert").css("display", "none");
+    await sleep(1000);
+  $("#savedAlert").css("display", "none");
 }
-function unsavedNotification() {
+async function unsavedNotification() {
 
+    if ($("#unsavedAlert").find("div#unsavedAlert2").length == 0) {
+        $("#unsavedAlert").append("<div class='alert alert-success alert-dismissable' id='unsavedAlert2'> <button type='button' class='close' data-dismiss='alert'  aria-hidden='true'>&times;</button> <strong>Saved!</strong> message sent successfully.</div>");
+    }
+    $("#unsavedAlert").css("display", "");
+    await sleep(1000);
+    $("#unsavedAlert").css("display", "none");
 }
 function sleep(time) {
     return new Promise(resolve => setTimeout(resolve, time));
