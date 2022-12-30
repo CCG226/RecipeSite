@@ -11,8 +11,22 @@ namespace RecipeSite.Models
 
         [Required]
         [StringLength(maximumLength: 100)]
-        public string? Name { get; set; }
+        public string? title { get; set; }
 
-  
+        public string? description { get; set; }
+
+        public string? equipment { get; set; }
+
+        public string? tags { get; set; }
+
+        public string? instructionSteps { get; set; }
+
+        public string? ingredients { get; set; }
+
+        public string? images { get; set; }
+
+        public decimal rating { get; set; }
+
+        public string? createdBy { get; set; }
     }
 }
