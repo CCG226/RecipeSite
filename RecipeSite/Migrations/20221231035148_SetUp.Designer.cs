@@ -12,8 +12,8 @@ using RecipeSite.Data;
 namespace RecipeSite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221230031131_RecipeModel")]
-    partial class RecipeModel
+    [Migration("20221231035148_SetUp")]
+    partial class SetUp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -88,6 +88,10 @@ namespace RecipeSite.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -139,6 +143,8 @@ namespace RecipeSite.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -230,6 +236,13 @@ namespace RecipeSite.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("User_Id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("createdBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -248,9 +261,6 @@ namespace RecipeSite.Migrations
                     b.Property<string>("instructionSteps")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("rating")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<string>("tags")
                         .HasColumnType("nvarchar(max)");
 
@@ -259,9 +269,61 @@ namespace RecipeSite.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<decimal>("totalRating")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("User_Id");
+
                     b.ToTable("Recipes");
+                });
+
+            modelBuilder.Entity("RecipeSite.Models.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("RecipeId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<string>("User_Id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("createdBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("rating")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RecipeId");
+
+                    b.HasIndex("User_Id");
+
+                    b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("RecipeSite.Models.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("AccountUsername")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -313,6 +375,48 @@ namespace RecipeSite.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("RecipeSite.Models.Recipe", b =>
+                {
+                    b.HasOne("RecipeSite.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("Recipes")
+                        .HasForeignKey("User_Id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("RecipeSite.Models.Review", b =>
+                {
+                    b.HasOne("RecipeSite.Models.Recipe", "Recipe")
+                        .WithMany("Reviews")
+                        .HasForeignKey("RecipeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RecipeSite.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("Reviews")
+                        .HasForeignKey("User_Id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Recipe");
+                });
+
+            modelBuilder.Entity("RecipeSite.Models.Recipe", b =>
+                {
+                    b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("RecipeSite.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Recipes");
+
+                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

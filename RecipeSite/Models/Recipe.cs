@@ -25,8 +25,17 @@ namespace RecipeSite.Models
 
         public string? images { get; set; }
 
-        public decimal rating { get; set; }
+        public decimal totalRating { get; set; }
 
+        public DateTime CreatedDate { get; set; }
+
+        public string? User_Id { get; set; }
+       
+        [ForeignKey("User_Id")]
+        public ApplicationUser ApplicationUser { get; set; }
+       
         public string? createdBy { get; set; }
+       
+        public List<Review> Reviews { get; set; }
     }
 }
